@@ -107,6 +107,248 @@
       }
     },
     {
+      "operation": "create_incident",
+      "title": "Create Incident",
+      "description": "Create incident",
+      "category": "investigation",
+      "annotation": "create_incident",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident Name",
+          "name": "incident_name",
+          "type": "text",
+          "tooltip": "Specify the name for new incident.",
+          "description": "Specify the name for new incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Description",
+          "name": "incident_description",
+          "type": "text",
+          "tooltip": "Specify the description for new incident.",
+          "description": "Specify the description for new incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Impacted Service ID",
+          "name": "impacted_service_id",
+          "type": "text",
+          "tooltip": "Specify service ID of impacted service by incident.",
+          "description": "Specify service ID of impacted service by incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested By User ID",
+          "name": "requested_by_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID who requested to create this incident.",
+          "description": "Specify the user ID who requested to create this incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Urgency",
+          "name": "incident_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "NoDisruption",
+            "SlightDisruption",
+            "SevereDisruption",
+            "TotalLossOfService"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "SingleUser",
+            "MultipleUsers",
+            "SiteOrDepartment",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Service Desk Group ID",
+          "name": "service_desk_group_id",
+          "type": "text",
+          "tooltip": "Specify the group ID of service desk.",
+          "description": "Specify the group ID of service desk.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Other Properities",
+          "name": "other_properities",
+          "type": "json",
+          "tooltip": "Specify the other properties for new incident.",
+          "description": "Specify the other properties for new incident.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+            {
+                "entity": {
+                    "entity_type": "",
+                    "properties": {
+                        "LastUpdateTime": "",
+                        "Id": ""
+                    },
+                    "related_properties": {}
+                },
+                "completion_status": ""
+            }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "create_request",
+      "title": "Create Request",
+      "description": "Create new request",
+      "category": "investigation",
+      "annotation": "create_request",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Request Name",
+          "name": "request_name",
+          "type": "text",
+          "tooltip": "Specify the name for new request.",
+          "description": "Specify the name for new request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Description",
+          "name": "request_description",
+          "type": "text",
+          "tooltip": "Specify the description for new request.",
+          "description": "Specify the description for new request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested for User ID",
+          "name": "requested_for_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID to assign this request.",
+          "description": "Specify the user ID to assign this request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested By User ID",
+          "name": "requested_by_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID who requested to create this request.",
+          "description": "Specify the user ID who requested to create this request.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Urgency",
+          "name": "request_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "NoDisruption",
+            "SlightDisruption",
+            "SevereDisruption",
+            "TotalLossOfService"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "SingleUser",
+            "MultipleUsers",
+            "SiteOrDepartment",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Other Properities",
+          "name": "other_properities",
+          "type": "json",
+          "tooltip": "Specify the other properties for new incident.",
+          "description": "Specify the other properties for new incident.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+            {
+                "entity": {
+                    "entity_type": "",
+                    "properties": {
+                        "LastUpdateTime": "",
+                        "Id": ""
+                    },
+                    "related_properties": {}
+                },
+                "completion_status": ""
+            }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
       "operation": "get_entity_details",
       "title": "Get Entity Details",
       "description": "Retrieves all details of entity",
@@ -286,132 +528,6 @@
       }
     },
     {
-      "operation": "create_incident",
-      "title": "Create Incident",
-      "description": "Create incident",
-      "category": "investigation",
-      "annotation": "create_incident",
-      "enabled": true,
-      "parameters": [
-        {
-          "title": "Incident Name",
-          "name": "incident_name",
-          "type": "text",
-          "tooltip": "Specify the name for new incident.",
-          "description": "Specify the name for new incident.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Incident Description",
-          "name": "incident_description",
-          "type": "text",
-          "tooltip": "Specify the description for new incident.",
-          "description": "Specify the description for new incident.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Impacted Service ID",
-          "name": "impacted_service_id",
-          "type": "text",
-          "tooltip": "Specify service ID of impacted service by incident.",
-          "description": "Specify service ID of impacted service by incident.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Requested By User ID",
-          "name": "requested_by_user_id",
-          "type": "text",
-          "tooltip": "Specify the user ID who requested to create this incident.",
-          "description": "Specify the user ID who requested to create this incident.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Incident Urgency",
-          "name": "incident_urgency",
-          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
-          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "select",
-          "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
-          ]
-        },
-        {
-          "title": "Impact Scope",
-          "name": "impact_scope",
-          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
-          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "select",
-          "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
-            "Enterprise"
-          ]
-        },
-        {
-          "title": "Service Desk Group ID",
-          "name": "service_desk_group_id",
-          "type": "text",
-          "tooltip": "Specify the group ID of service desk.",
-          "description": "Specify the group ID of service desk.",
-          "required": false,
-          "visible": true,
-          "editable": true
-        },
-        {
-          "title": "Other Properities",
-          "name": "other_properities",
-          "type": "json",
-          "tooltip": "Specify the other properties for new incident.",
-          "description": "Specify the other properties for new incident.",
-          "required": false,
-          "visible": true,
-          "editable": true
-        }
-      ],
-      "output_schema": {
-        "meta": {
-          "completion_status": ""
-        },
-        "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
-        ],
-        "relationship_result_list": [],
-        "translation_result_list": []
-      }
-    },
-    {
       "operation": "update_incident",
       "title": "Update Incident",
       "description": "Update incident",
@@ -528,122 +644,6 @@
           "type": "json",
           "tooltip": "Specify the other properties for update incident.",
           "description": "Specify the other properties for update incident.",
-          "required": false,
-          "visible": true,
-          "editable": true
-        }
-      ],
-      "output_schema": {
-        "meta": {
-          "completion_status": ""
-        },
-        "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
-        ],
-        "relationship_result_list": [],
-        "translation_result_list": []
-      }
-    },
-    {
-      "operation": "create_request",
-      "title": "Create Request",
-      "description": "Create new request",
-      "category": "investigation",
-      "annotation": "create_request",
-      "enabled": true,
-      "parameters": [
-        {
-          "title": "Request Name",
-          "name": "request_name",
-          "type": "text",
-          "tooltip": "Specify the name for new request.",
-          "description": "Specify the name for new request.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Request Description",
-          "name": "request_description",
-          "type": "text",
-          "tooltip": "Specify the description for new request.",
-          "description": "Specify the description for new request.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Requested for User ID",
-          "name": "requested_for_user_id",
-          "type": "text",
-          "tooltip": "Specify the user ID to assign this request.",
-          "description": "Specify the user ID to assign this request.",
-          "required": true,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Requested By User ID",
-          "name": "requested_by_user_id",
-          "type": "text",
-          "tooltip": "Specify the user ID who requested to create this request.",
-          "description": "Specify the user ID who requested to create this request.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "value": ""
-        },
-        {
-          "title": "Request Urgency",
-          "name": "request_urgency",
-          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
-          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "select",
-          "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
-          ]
-        },
-        {
-          "title": "Impact Scope",
-          "name": "impact_scope",
-          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
-          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
-          "required": false,
-          "visible": true,
-          "editable": true,
-          "type": "select",
-          "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
-            "Enterprise"
-          ]
-        },
-        {
-          "title": "Other Properities",
-          "name": "other_properities",
-          "type": "json",
-          "tooltip": "Specify the other properties for new incident.",
-          "description": "Specify the other properties for new incident.",
           "required": false,
           "visible": true,
           "editable": true

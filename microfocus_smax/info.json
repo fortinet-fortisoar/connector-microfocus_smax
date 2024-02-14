@@ -82,7 +82,17 @@
           "description": "Provide the list of entities for create new records.",
           "required": true,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": [
+            {
+              "entity_type": "Incident",
+              "properties": {
+                "DisplayLabel": "New Incident Name",
+                "Description": "New Incident Description",
+                "RegisteredForActualService": "impacted_service"
+              }
+            }
+          ]
         }
       ],
       "output_schema": {
@@ -90,17 +100,17 @@
           "completion_status": ""
         },
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "relationship_result_list": [],
         "translation_result_list": []
@@ -168,10 +178,10 @@
           "editable": true,
           "type": "select",
           "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
           ]
         },
         {
@@ -184,9 +194,9 @@
           "editable": true,
           "type": "select",
           "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
             "Enterprise"
           ]
         },
@@ -201,14 +211,19 @@
           "editable": true
         },
         {
-          "title": "Other Properities",
-          "name": "other_properities",
+          "title": "Other Properties",
+          "name": "other_properties",
           "type": "json",
           "tooltip": "Specify the other properties for new incident.",
           "description": "Specify the other properties for new incident.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
         }
       ],
       "output_schema": {
@@ -216,17 +231,17 @@
           "completion_status": ""
         },
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "relationship_result_list": [],
         "translation_result_list": []
@@ -294,10 +309,10 @@
           "editable": true,
           "type": "select",
           "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
           ]
         },
         {
@@ -310,9 +325,9 @@
           "editable": true,
           "type": "select",
           "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
             "Enterprise"
           ]
         },
@@ -324,7 +339,12 @@
           "description": "Specify the other properties for new incident.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
         }
       ],
       "output_schema": {
@@ -332,17 +352,17 @@
           "completion_status": ""
         },
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "relationship_result_list": [],
         "translation_result_list": []
@@ -503,22 +523,32 @@
           "description": "Provide the list of entities for update.",
           "required": true,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": [
+            {
+              "entity_type": "Incident",
+              "properties": {
+                "DisplayLabel": "New Incident Name",
+                "Description": "New Incident Description",
+                "RegisteredForActualService": "impacted_service"
+              }
+            }
+          ]
         }
       ],
       "output_schema": {
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "meta": {
           "completion_status": ""
@@ -567,10 +597,10 @@
           "editable": true,
           "type": "select",
           "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
           ]
         },
         {
@@ -583,9 +613,9 @@
           "editable": true,
           "type": "select",
           "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
             "Enterprise"
           ]
         },
@@ -646,7 +676,12 @@
           "description": "Specify the other properties for update incident.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
         }
       ],
       "output_schema": {
@@ -654,17 +689,17 @@
           "completion_status": ""
         },
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "relationship_result_list": [],
         "translation_result_list": []
@@ -710,10 +745,10 @@
           "editable": true,
           "type": "select",
           "options": [
-            "NoDisruption",
-            "SlightDisruption",
-            "SevereDisruption",
-            "TotalLossOfService"
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
           ]
         },
         {
@@ -726,9 +761,9 @@
           "editable": true,
           "type": "select",
           "options": [
-            "SingleUser",
-            "MultipleUsers",
-            "SiteOrDepartment",
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
             "Enterprise"
           ]
         },
@@ -742,16 +777,16 @@
           "editable": true,
           "type": "select",
           "options": [
-            "RequestStatusReady",
-            "RequestStatusInProgress",
-            "RequestStatusPending",
-            "RequestStatusSuspended",
-            "RequestStatusComplete",
-            "RequestStatusPendingParent",
-            "RequestStatusRejected",
-            "RequestStatusPendingVendor",
-            "RequestStatusPendingExternalServiceDesk",
-            "RequestStatusPendingSpecialOperation"
+            "Request Status Ready",
+            "Request Status In Progress",
+            "Request Status Pending",
+            "Request Status Suspended",
+            "Request Status Complete",
+            "Request Status Pending Parent",
+            "Request Status Rejected",
+            "Request Status Pending Vendor",
+            "Request Status Pending External ServiceDesk",
+            "Request Status Pending Special Operation"
           ]
         },
         {
@@ -762,7 +797,12 @@
           "description": "Specify the other properties for new incident.",
           "required": false,
           "visible": true,
-          "editable": true
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
         }
       ],
       "output_schema": {
@@ -770,17 +810,17 @@
           "completion_status": ""
         },
         "entity_result_list": [
-            {
-                "entity": {
-                    "entity_type": "",
-                    "properties": {
-                        "LastUpdateTime": "",
-                        "Id": ""
-                    },
-                    "related_properties": {}
-                },
-                "completion_status": ""
-            }
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
         ],
         "relationship_result_list": [],
         "translation_result_list": []

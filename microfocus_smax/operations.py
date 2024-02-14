@@ -10,6 +10,32 @@ from connectors.core.utils import update_connnector_config
 
 logger = get_logger('microfocus_smax')
 
+URGENCY = {
+    "Total Loss Of Service": "TotalLossOfService",
+    "No Disruption": "NoDisruption",
+    "Slight Disruption": "SlightDisruption",
+    "Severe Disruption": "SevereDisruption",
+}
+IMPACT_SCOP = {
+    "Single User": "SingleUser",
+    "Multiple Users": "MultipleUsers",
+    "Site Or Department": "SiteOrDepartment",
+    "Enterprise": "Enterprise"
+}
+
+REQUEST_STATUS = {
+    "Request Status Ready": "RequestStatusReady",
+    "Request Status In Progress": "RequestStatusInProgress",
+    "Request Status Pending": "RequestStatusPending",
+    "Request Status Suspended": "RequestStatusSuspended",
+    "Request Status Complete": "RequestStatusComplete",
+    "Request Status Pending Parent": "RequestStatusPendingParent",
+    "Request Status Rejected": "RequestStatusRejected",
+    "Request Status PendingVendor": "RequestStatusPendingVendor",
+    "Request Status Pending External Service Desk": "RequestStatusPendingExternalServiceDesk",
+    "Request Status Pending Special Operation": "RequestStatusPendingSpecialOperation"
+}
+
 
 class MicroFocusSmax(object):
     def __init__(self, config):
@@ -41,6 +67,13 @@ class MicroFocusSmax(object):
             }
             login_api = "/auth/authentication-endpoint/authenticate/login"
             url = self.server_url + login_api
+
+            try:
+                from connectors.debug_utils.curl_script import make_curl
+                make_curl("POST", url, headers=headers, params=params, data=json.dumps(data), verify_ssl=self.verify_ssl)
+            except Exception as err:
+                pass
+
             response = requests.request(method="POST", url=url,
                                         headers=headers, json=data, params=params, verify=self.verify_ssl)
             if response.ok:
@@ -63,6 +96,14 @@ class MicroFocusSmax(object):
                 headers.update({"Cookie" : "SMAX_AUTH_TOKEN="+self.token})
             else:
                 headers = {"Cookie": "SMAX_AUTH_TOKEN=" + self.token}
+
+            try:
+                from connectors.debug_utils.curl_script import make_curl
+                make_curl("POST", url, headers=headers, params=params, data=json.dumps(data),
+                          verify_ssl=self.verify_ssl)
+            except Exception as err:
+                pass
+
             response = requests.request(method=method, url=url, headers=headers, data=data, json=json_data, params=params, verify=self.verify_ssl)
             if response.ok:
                 if response.content:
@@ -138,8 +179,8 @@ def create_incident(config, params):
         "Description": params.get("incident_description"),
         "RegisteredForActualService": params.get("impacted_service_id"),
         "RequestedByPerson": params.get("requested_by_user_id"),
-        "Urgency": params.get("incident_urgency"),
-        "ImpactScope": params.get("impact_scope"),
+        "Urgency": URGENCY.get(params.get("incident_urgency")),
+        "ImpactScope": IMPACT_SCOP.get(params.get("impact_scope")),
         "ServiceDeskGroup": params.get("service_desk_group_id")
     }
     if params.get("other_properities"):
@@ -152,15 +193,15 @@ def update_incident(config, params):
     incident_properties = {
         "Id": params.get("incident_id"),
         "Description": params.get("incident_description"),
-        "Urgency": params.get("incident_urgency"),
-        "ImpactScope": params.get("impact_scope"),
+        "Urgency": URGENCY.get(params.get("incident_urgency")),
+        "ImpactScope": IMPACT_SCOP.get(params.get("impact_scope")),
         "Status": params.get("incident_status"),
         "ClosureCategory": params.get("incident_closure_category_id"),
         "CompletionCode": params.get("incident_completion_code"),
         "Solution": params.get("incident_solution"),
     }
-    if params.get("other_properities"):
-        incident_properties.update(params.get("other_properities"))
+    if params.get("other_properties"):
+        incident_properties.update(params.get("other_properties"))
     params.update({"entities": [{"entity_type":"Incident", "properties": incident_properties}]})
     return bulk_operations_entities(config, params, "UPDATE")
 
@@ -171,11 +212,11 @@ def create_request(config, params):
         "Description": params.get("request_description"),
         "RequestedByPerson": params.get("requested_by_user_id"),
         "RequestedForPerson": params.get("requested_for_user_id"),
-        "Urgency": params.get("request_urgency"),
-        "ImpactScope": params.get("impact_scope"),
+        "Urgency": URGENCY.get(params.get("request_urgency")),
+        "ImpactScope": IMPACT_SCOP.get(params.get("impact_scope")),
     }
-    if params.get("other_properities"):
-        incident_properties.update(params.get("other_properities"))
+    if params.get("other_properties"):
+        incident_properties.update(params.get("other_properties"))
     params.update({"entities": [{"entity_type":"Request", "properties": incident_properties}]})
     return bulk_operations_entities(config, params, "CREATE")
 
@@ -184,12 +225,12 @@ def update_request(config, params):
     incident_properties = {
         "Id": params.get("request_id"),
         "Description": params.get("request_description"),
-        "Urgency": params.get("request_urgency"),
-        "ImpactScope": params.get("impact_scope"),
-        "Status": params.get("request_status")
+        "Urgency": URGENCY.get(params.get("request_urgency")),
+        "ImpactScope": IMPACT_SCOP.get(params.get("impact_scope")),
+        "Status": REQUEST_STATUS.get(params.get("request_status"))
     }
-    if params.get("other_properities"):
-        incident_properties.update(params.get("other_properities"))
+    if params.get("other_properties"):
+        incident_properties.update(params.get("other_properties"))
     params.update({"entities": [{"entity_type":"Request", "properties": incident_properties}]})
     return bulk_operations_entities(config, params, "UPDATE")
 

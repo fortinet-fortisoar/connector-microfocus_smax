@@ -1,0 +1,688 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+      "@type": "WorkflowCollection",
+      "name": "Sample - Micro Focus SMAX - 1.0.0",
+      "description": "Micro Focus SMAX connector is used for fetch SMAX incidents, requests and automate different SMAX case management actions.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "Microfocus_smax",
+        "microfocus_smax"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "ea4f3970-e0e8-4e0c-9d03-fb33aa372bcc",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Create entities",
+          "name": "Create Entities",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b57580c5-725c-404e-919e-147909cee14c",
+          "steps": [
+            {
+              "uuid": "b57580c5-725c-404e-919e-147909cee14c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "18967f41-cf1e-4bc7-b4af-97234c7f6a40",
+                "title": "Micro Focus SMAX: Create Entities",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "e4ba87ee-3838-46bf-a1fa-a6c553a219dc",
+              "@type": "WorkflowStep",
+              "name": "Create Entities",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "create_entities",
+                "operationTitle": "Create Entities",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "011afb25-d4d9-4a94-b8e9-ac348399e6cd",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Entities",
+              "sourceStep": "/api/3/workflow_steps/b57580c5-725c-404e-919e-147909cee14c",
+              "targetStep": "/api/3/workflow_steps/e4ba87ee-3838-46bf-a1fa-a6c553a219dc"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9b91dace-48ac-44ca-b0f0-568746373d9e",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Retrieves all details of entity",
+          "name": "Get Entity Details",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/91091f68-ad20-4c1d-9219-feaf64e06151",
+          "steps": [
+            {
+              "uuid": "91091f68-ad20-4c1d-9219-feaf64e06151",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "94511fba-1e5e-484c-a396-621101afa48e",
+                "title": "Micro Focus SMAX: Get Entity Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "09cbd5ba-a667-455e-8a26-beaf172c932e",
+              "@type": "WorkflowStep",
+              "name": "Get Entity Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "entity_type": "",
+                  "entity_id": "",
+                  "entity_fields": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "get_entity_details",
+                "operationTitle": "Get Entity Details",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "107b20fc-c9b6-4b77-8513-f0c0a358383f",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Entity Details",
+              "sourceStep": "/api/3/workflow_steps/91091f68-ad20-4c1d-9219-feaf64e06151",
+              "targetStep": "/api/3/workflow_steps/09cbd5ba-a667-455e-8a26-beaf172c932e"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c87219cd-2a00-4f0a-a5ac-fd93abe2fcc3",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Retrieves list of entity",
+          "name": "Query Entities",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/f68f0baf-4ff0-46d3-af5e-dc40c60df2ff",
+          "steps": [
+            {
+              "uuid": "f68f0baf-4ff0-46d3-af5e-dc40c60df2ff",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "eebabe11-0a3b-4a84-96c3-3aefab463b61",
+                "title": "Micro Focus SMAX: Query Entities",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "af4e53a6-d7d6-4505-99c8-01a0536c1f34",
+              "@type": "WorkflowStep",
+              "name": "Query Entities",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "entity_type": "",
+                  "entity_fields": "",
+                  "query_filter": "",
+                  "order_by": "",
+                  "size": "",
+                  "skip": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "query_entities",
+                "operationTitle": "Query Entities",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "201d3660-f1dd-4d8a-a72d-d039b54c1b2b",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Query Entities",
+              "sourceStep": "/api/3/workflow_steps/f68f0baf-4ff0-46d3-af5e-dc40c60df2ff",
+              "targetStep": "/api/3/workflow_steps/af4e53a6-d7d6-4505-99c8-01a0536c1f34"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "140e2f96-5c3a-4b8d-8d27-7623c3a1b565",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Update entities",
+          "name": "Update Entities",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bac2aa57-f18b-40ec-bc26-afae68649c23",
+          "steps": [
+            {
+              "uuid": "bac2aa57-f18b-40ec-bc26-afae68649c23",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "a585f083-6d69-4f59-b3ee-90614908b47f",
+                "title": "Micro Focus SMAX: Update Entities",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "7819e566-960c-485a-9de1-d129d5e20584",
+              "@type": "WorkflowStep",
+              "name": "Update Entities",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "update_entities",
+                "operationTitle": "Update Entities",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "46bf7ea6-d331-43e0-a692-e15f90eb28b3",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Entities",
+              "sourceStep": "/api/3/workflow_steps/bac2aa57-f18b-40ec-bc26-afae68649c23",
+              "targetStep": "/api/3/workflow_steps/7819e566-960c-485a-9de1-d129d5e20584"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "116cd2c9-596b-4214-a69f-5c2eab8c5756",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Create incident",
+          "name": "Create Incident",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/d9470e54-670e-4680-9f00-6332c25e2433",
+          "steps": [
+            {
+              "uuid": "d9470e54-670e-4680-9f00-6332c25e2433",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "0f008df0-5b1d-4447-aed0-f5173d273cde",
+                "title": "Micro Focus SMAX: Create Incident",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "798c9b27-832f-48ef-a2f8-6f9fc9ab1c8f",
+              "@type": "WorkflowStep",
+              "name": "Create Incident",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "incident_name": "",
+                  "incident_description": "",
+                  "impacted_service_id": "",
+                  "requested_by_user_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "create_incident",
+                "operationTitle": "Create Incident",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "860281cc-5ec6-4bd1-8063-3fb4a5438b68",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Incident",
+              "sourceStep": "/api/3/workflow_steps/d9470e54-670e-4680-9f00-6332c25e2433",
+              "targetStep": "/api/3/workflow_steps/798c9b27-832f-48ef-a2f8-6f9fc9ab1c8f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4f935629-6ad5-4080-86a9-a9b154c0c894",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Update incident",
+          "name": "Update Incident",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/76a35492-3d1c-48f3-8e65-4cf52ed79603",
+          "steps": [
+            {
+              "uuid": "76a35492-3d1c-48f3-8e65-4cf52ed79603",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "c19344d1-a65d-44f9-a063-95ac9d905468",
+                "title": "Micro Focus SMAX: Update Incident",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "94eee703-073e-4fe4-93a9-7bcc8b545780",
+              "@type": "WorkflowStep",
+              "name": "Update Incident",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "incident_id": "",
+                  "incident_description": "",
+                  "incident_closure_category_id": "",
+                  "incident_completion_code": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "update_incident",
+                "operationTitle": "Update Incident",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d80c8a6b-ac7f-480f-9c66-6c8303978b30",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Incident",
+              "sourceStep": "/api/3/workflow_steps/76a35492-3d1c-48f3-8e65-4cf52ed79603",
+              "targetStep": "/api/3/workflow_steps/94eee703-073e-4fe4-93a9-7bcc8b545780"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3544db8b-ce62-40fe-9a72-b942628c5e3f",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Create new request",
+          "name": "Create Request",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5597f219-04bd-4b79-927e-3d919144ee42",
+          "steps": [
+            {
+              "uuid": "5597f219-04bd-4b79-927e-3d919144ee42",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "74c68593-ab9f-4d0b-bf91-89bf027223a9",
+                "title": "Micro Focus SMAX: Create Request",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "045cdc42-6ca7-4325-a70b-efafdd4cf9c1",
+              "@type": "WorkflowStep",
+              "name": "Create Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "request_name": "",
+                  "request_description": "",
+                  "requested_for_user_id": "",
+                  "requested_by_user_id": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "create_request",
+                "operationTitle": "Create Request",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "da59db4a-61f4-4802-9ee5-ee08f9e67823",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Request",
+              "sourceStep": "/api/3/workflow_steps/5597f219-04bd-4b79-927e-3d919144ee42",
+              "targetStep": "/api/3/workflow_steps/045cdc42-6ca7-4325-a70b-efafdd4cf9c1"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "be7f72e1-fbb0-4c33-a09f-649ac5d0b7b7",
+          "collection": "/api/3/workflow_collections/c4a7a8d7-a4ad-4b9f-9186-d6bcb56d7fde",
+          "triggerLimit": null,
+          "description": "Update request",
+          "name": "Update Request",
+          "tag": "#Micro Focus SMAX",
+          "recordTags": [
+            "Microfocus_smax",
+            "microfocus_smax"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5e3bbb15-a31f-4409-826b-32e57c4e5c56",
+          "steps": [
+            {
+              "uuid": "5e3bbb15-a31f-4409-826b-32e57c4e5c56",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "aff2daeb-90ba-4fd1-8972-b6de188eb135",
+                "title": "Micro Focus SMAX: Update Request",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6917a94e-5b74-4191-bd8e-ed93ef3bd3a9",
+              "@type": "WorkflowStep",
+              "name": "Update Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Micro Focus SMAX",
+                "config": "''",
+                "params": {
+                  "request_id": "",
+                  "request_description": ""
+                },
+                "version": "1.0.0",
+                "connector": "microfocus_smax",
+                "operation": "update_request",
+                "operationTitle": "Update Request",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "cc21ac14-7980-4644-979f-76f4750deda5",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Request",
+              "sourceStep": "/api/3/workflow_steps/5e3bbb15-a31f-4409-826b-32e57c4e5c56",
+              "targetStep": "/api/3/workflow_steps/6917a94e-5b74-4191-bd8e-ed93ef3bd3a9"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

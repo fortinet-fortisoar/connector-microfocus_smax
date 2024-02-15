@@ -1,0 +1,830 @@
+{
+  "name": "microfocus_smax",
+  "label": "Micro Focus SMAX",
+  "description": "Micro Focus SMAX connector is used for fetch SMAX incidents, requests and automate different SMAX case management actions.",
+  "publisher": "Fortinet",
+  "cs_approved": true,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "Ticket Creation",
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "tooltip": "Specify the URL of the SMAX server to connect and perform automated operations.",
+        "description": "Specify the URL of the SMAX server to connect and perform automated operations."
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "tooltip": "Specify the Username used to access the SMAX server to connect and perform automated operations.",
+        "description": "Specify the Username used to access the SMAX server to connect and perform automated operations."
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "tooltip": "Specify the Password used to access the SMAX server to connect and perform automated operations.",
+        "description": "Specify the Password used to access the SMAX server to connect and perform automated operations."
+      },
+      {
+        "title": "Tenant ID",
+        "name": "tenant_id",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "tooltip": "Specify the Tenant ID used to access the SMAX server to connect and perform automated operations. The tenant ID is the number following TENANTID= in your management URL",
+        "description": "Specify the Tenant ID used to access the SMAX server to connect and perform automated operations. The tenant ID is the number following TENANTID= in your management URL"
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "value": true,
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is set to True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "create_entities",
+      "title": "Create Entities",
+      "description": "Create entities",
+      "category": "investigation",
+      "annotation": "create_entities",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Entities",
+          "name": "entities",
+          "type": "json",
+          "tooltip": "Provide the list of entities for create new records.",
+          "description": "Provide the list of entities for create new records.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": [
+            {
+              "entity_type": "Incident",
+              "properties": {
+                "DisplayLabel": "New Incident Name",
+                "Description": "New Incident Description",
+                "RegisteredForActualService": "impacted_service"
+              }
+            }
+          ]
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "create_incident",
+      "title": "Create Incident",
+      "description": "Create incident",
+      "category": "investigation",
+      "annotation": "create_incident",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident Name",
+          "name": "incident_name",
+          "type": "text",
+          "tooltip": "Specify the name for new incident.",
+          "description": "Specify the name for new incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Description",
+          "name": "incident_description",
+          "type": "text",
+          "tooltip": "Specify the description for new incident.",
+          "description": "Specify the description for new incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Impacted Service ID",
+          "name": "impacted_service_id",
+          "type": "text",
+          "tooltip": "Specify service ID of impacted service by incident.",
+          "description": "Specify service ID of impacted service by incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested By User ID",
+          "name": "requested_by_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID who requested to create this incident.",
+          "description": "Specify the user ID who requested to create this incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Urgency",
+          "name": "incident_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Service Desk Group ID",
+          "name": "service_desk_group_id",
+          "type": "text",
+          "tooltip": "Specify the group ID of service desk.",
+          "description": "Specify the group ID of service desk.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Other Properties",
+          "name": "other_properties",
+          "type": "json",
+          "tooltip": "Specify the other properties for new incident.",
+          "description": "Specify the other properties for new incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "create_request",
+      "title": "Create Request",
+      "description": "Create new request",
+      "category": "investigation",
+      "annotation": "create_request",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Request Name",
+          "name": "request_name",
+          "type": "text",
+          "tooltip": "Specify the name for new request.",
+          "description": "Specify the name for new request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Description",
+          "name": "request_description",
+          "type": "text",
+          "tooltip": "Specify the description for new request.",
+          "description": "Specify the description for new request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested for User ID",
+          "name": "requested_for_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID to assign this request.",
+          "description": "Specify the user ID to assign this request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Requested By User ID",
+          "name": "requested_by_user_id",
+          "type": "text",
+          "tooltip": "Specify the user ID who requested to create this request.",
+          "description": "Specify the user ID who requested to create this request.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Urgency",
+          "name": "request_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Other Properities",
+          "name": "other_properities",
+          "type": "json",
+          "tooltip": "Specify the other properties for new incident.",
+          "description": "Specify the other properties for new incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "get_entity_details",
+      "title": "Get Entity Details",
+      "description": "Retrieves all details of entity",
+      "category": "investigation",
+      "annotation": "get_entity_details",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Entity Type",
+          "name": "entity_type",
+          "type": "text",
+          "tooltip": "Specify the type of entity. for example: \"Incident\", the type is case-sensitive.",
+          "description": "Specify the type of entity. for example: \"Incident\", the type is case-sensitive.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Entity ID",
+          "name": "entity_id",
+          "type": "text",
+          "tooltip": "Specify the ID of entity.",
+          "description": "Specify the ID of entity.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Entity Fields",
+          "name": "entity_fields",
+          "type": "text",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        }
+      ],
+      "output_schema": {
+        "entities": [],
+        "meta": {
+          "completion_status": "",
+          "total_count": "",
+          "errorDetailsList": "",
+          "errorDetailsMetaList": "",
+          "query_time": ""
+        }
+      }
+    },
+    {
+      "operation": "query_entities",
+      "title": "Query Entities",
+      "description": "Retrieves list of entity",
+      "category": "investigation",
+      "annotation": "query_entities",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Entity Type",
+          "name": "entity_type",
+          "type": "text",
+          "tooltip": "Specify the type of entity. for example: \"Incident\", the type is case-sensitive.",
+          "description": "Specify the type of entity. for example: \"Incident\", the type is case-sensitive.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Entity Fields",
+          "name": "entity_fields",
+          "type": "text",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Query Filter",
+          "name": "query_filter",
+          "type": "text",
+          "tooltip": "Specify query for return list of entity. example: Status = 'Ready'\" for Incident queries, see \"REST API collection query protocol\" in SMAX documentation to know how to use the filter.",
+          "description": "Specify query for return list of entity. example: Status = 'Ready'\" for Incident queries, see \"REST API collection query protocol\" in SMAX documentation to know how to use the filter.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Order By",
+          "name": "order_by",
+          "type": "text",
+          "tooltip": "Specify the order on specific parameter. For example \"Id desc\"",
+          "description": "Specify the order on specific parameter. For example \"Id desc\"",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Size",
+          "name": "size",
+          "type": "text",
+          "tooltip": "Specify the number of results which you need to return.",
+          "description": "Specify the number of results which you need to return.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Skip",
+          "name": "skip",
+          "type": "text",
+          "tooltip": "Specify how many resources should be skipped by specifying the starting index of the returned result.",
+          "description": "Specify how many resources should be skipped by specifying the starting index of the returned result.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        }
+      ],
+      "output_schema": {
+        "entities": [],
+        "meta": {
+          "completion_status": "",
+          "total_count": "",
+          "errorDetailsList": "",
+          "errorDetailsMetaList": "",
+          "query_time": ""
+        }
+      }
+    },
+    {
+      "operation": "update_entities",
+      "title": "Update Entities",
+      "description": "Update entities",
+      "category": "investigation",
+      "annotation": "update_entities",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Entities",
+          "name": "entities",
+          "type": "json",
+          "tooltip": "Provide the list of entities for update.",
+          "description": "Provide the list of entities for update.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": [
+            {
+              "entity_type": "Incident",
+              "properties": {
+                "DisplayLabel": "New Incident Name",
+                "Description": "New Incident Description",
+                "RegisteredForActualService": "impacted_service"
+              }
+            }
+          ]
+        }
+      ],
+      "output_schema": {
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "meta": {
+          "completion_status": ""
+        },
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "update_incident",
+      "title": "Update Incident",
+      "description": "Update incident",
+      "category": "investigation",
+      "annotation": "update_incident",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "name": "incident_id",
+          "type": "text",
+          "tooltip": "Specify the incident ID for update incident.",
+          "description": "Specify the incident ID for update incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Description",
+          "name": "incident_description",
+          "type": "text",
+          "tooltip": "Specify the description for update the incident.",
+          "description": "Specify the description for update the incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Urgency",
+          "name": "incident_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Incident Status",
+          "name": "incident_status",
+          "tooltip": "Specify the incident status. Possible values are: Ready, InProgress, Pending, Suspended, Complete.",
+          "description": "Specify the incident status. Possible values are: Ready, InProgress, Pending, Suspended, Complete.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Ready",
+            "InProgress",
+            "Pending",
+            "Suspended",
+            "Complete"
+          ]
+        },
+        {
+          "title": "Incident Closure Category ID",
+          "name": "incident_closure_category_id",
+          "type": "text",
+          "tooltip": "Specify closure category ID for update incident.",
+          "description": "Specify closure category ID for update incident.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Completion Code",
+          "name": "incident_completion_code",
+          "type": "text",
+          "tooltip": "Specify the incident completion code.",
+          "description": "Specify the incident completion code.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Incident Solution",
+          "name": "incident_solution",
+          "type": "text",
+          "tooltip": "Specify the incident solution details for update incident.",
+          "description": "Specify the incident solution details for update incident.",
+          "required": false,
+          "visible": true,
+          "editable": true
+        },
+        {
+          "title": "Other Properities",
+          "name": "other_properities",
+          "type": "json",
+          "tooltip": "Specify the other properties for update incident.",
+          "description": "Specify the other properties for update incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    },
+    {
+      "operation": "update_request",
+      "title": "Update Request",
+      "description": "Update request",
+      "category": "investigation",
+      "annotation": "update_request",
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Request ID",
+          "name": "request_id",
+          "type": "text",
+          "tooltip": "Specify the ID of request.",
+          "description": "Specify the ID of request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Description",
+          "name": "request_description",
+          "type": "text",
+          "tooltip": "Specify the description for update the request.",
+          "description": "Specify the description for update the request.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "value": ""
+        },
+        {
+          "title": "Request Urgency",
+          "name": "request_urgency",
+          "tooltip": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "description": "Specify the urgency level. Possible values are: NoDisruption, SlightDisruption, SevereDisruption, TotalLossOfService.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "No Disruption",
+            "Slight Disruption",
+            "Severe Disruption",
+            "Total Loss Of Service"
+          ]
+        },
+        {
+          "title": "Impact Scope",
+          "name": "impact_scope",
+          "tooltip": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "description": "Specify the impact scope. Possible values are: SingleUser, MultipleUsers, SiteOrDepartment, Enterprise.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Single User",
+            "Multiple Users",
+            "Site Or Department",
+            "Enterprise"
+          ]
+        },
+        {
+          "title": "Request Status",
+          "name": "request_status",
+          "tooltip": "Specify the request status. Possible values are: RequestStatusReady, RequestStatusInProgress, RequestStatusPending, RequestStatusSuspended, RequestStatusComplete, RequestStatusPendingParent, RequestStatusRejected, RequestStatusPendingVendor, RequestStatusPendingExternalServiceDesk, RequestStatusPendingSpecialOperation.",
+          "description": "Specify the request status. Possible values are: RequestStatusReady, RequestStatusInProgress, RequestStatusPending, RequestStatusSuspended, RequestStatusComplete, RequestStatusPendingParent, RequestStatusRejected, RequestStatusPendingVendor, RequestStatusPendingExternalServiceDesk, RequestStatusPendingSpecialOperation.",
+          "required": true,
+          "visible": true,
+          "editable": true,
+          "type": "select",
+          "options": [
+            "Request Status Ready",
+            "Request Status In Progress",
+            "Request Status Pending",
+            "Request Status Suspended",
+            "Request Status Complete",
+            "Request Status Pending Parent",
+            "Request Status Rejected",
+            "Request Status Pending Vendor",
+            "Request Status Pending External ServiceDesk",
+            "Request Status Pending Special Operation"
+          ]
+        },
+        {
+          "title": "Other Properities",
+          "name": "other_properities",
+          "type": "json",
+          "tooltip": "Specify the other properties for new incident.",
+          "description": "Specify the other properties for new incident.",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "value": {
+            "DisplayLabel": "Display Name",
+            "Description": "Description",
+            "RegisteredForActualService": "impacted_service"
+          }
+        }
+      ],
+      "output_schema": {
+        "meta": {
+          "completion_status": ""
+        },
+        "entity_result_list": [
+          {
+            "entity": {
+              "entity_type": "",
+              "properties": {
+                "LastUpdateTime": "",
+                "Id": ""
+              },
+              "related_properties": {}
+            },
+            "completion_status": ""
+          }
+        ],
+        "relationship_result_list": [],
+        "translation_result_list": []
+      }
+    }
+  ]
+}

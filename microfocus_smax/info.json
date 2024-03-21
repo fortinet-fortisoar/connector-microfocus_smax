@@ -69,7 +69,7 @@
     {
       "operation": "create_entities",
       "title": "Create Entities",
-      "description": "Generate a new entities.",
+      "description": "Generate a new entities with provided details.",
       "category": "investigation",
       "annotation": "create_entities",
       "enabled": true,
@@ -119,7 +119,7 @@
     {
       "operation": "create_incident",
       "title": "Create Incident",
-      "description": "Generate a new incident",
+      "description": "Generate a new incident with provided details",
       "category": "investigation",
       "annotation": "create_incident",
       "enabled": true,
@@ -250,7 +250,7 @@
     {
       "operation": "create_request",
       "title": "Create Request",
-      "description": "Generate a new request.",
+      "description": "Generate a new request with provided details.",
       "category": "investigation",
       "annotation": "create_request",
       "enabled": true,
@@ -402,7 +402,7 @@
           "title": "Entity Fields",
           "name": "entity_fields",
           "type": "text",
-          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\". You can try below fields: DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup",
           "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
           "required": false,
           "visible": true,
@@ -444,7 +444,7 @@
           "title": "Entity Fields",
           "name": "entity_fields",
           "type": "text",
-          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\". You can try below fields: DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup",
           "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
           "required": false,
           "visible": true,
@@ -510,7 +510,7 @@
     {
       "operation": "update_entities",
       "title": "Update Entities",
-      "description": "Update the entities.",
+      "description": "Update the entities with provided details.",
       "category": "investigation",
       "annotation": "update_entities",
       "enabled": true,
@@ -560,7 +560,7 @@
     {
       "operation": "update_incident",
       "title": "Update Incident",
-      "description": "Update the incident",
+      "description": "Update the incident with provided details",
       "category": "investigation",
       "annotation": "update_incident",
       "enabled": true,
@@ -708,7 +708,7 @@
     {
       "operation": "update_request",
       "title": "Update Request",
-      "description": "Update the request",
+      "description": "Update the request with provided details",
       "category": "investigation",
       "annotation": "update_request",
       "enabled": true,

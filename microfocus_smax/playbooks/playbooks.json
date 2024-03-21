@@ -9,7 +9,6 @@
       "visible": true,
       "image": null,
       "recordTags": [
-        "Microfocus_smax",
         "microfocus_smax"
       ],
       "workflows": [
@@ -22,7 +21,6 @@
           "name": "Create Entities",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -102,7 +100,6 @@
           "name": "Get Entity Details",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -186,7 +183,6 @@
           "name": "Query Entities",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -273,7 +269,6 @@
           "name": "Update Entities",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -353,7 +348,6 @@
           "name": "Create Incident",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -438,7 +432,6 @@
           "name": "Update Incident",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -523,7 +516,6 @@
           "name": "Create Request",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,
@@ -608,7 +600,6 @@
           "name": "Update Request",
           "tag": "#Micro Focus SMAX",
           "recordTags": [
-            "Microfocus_smax",
             "microfocus_smax"
           ],
           "isActive": false,

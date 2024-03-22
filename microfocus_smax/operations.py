@@ -122,7 +122,7 @@ class MicroFocusSmax(object):
 
 def get_entity_details(config, params):
     endpoint = "/rest/{tenant_id}/ems/{entity_type}/{entity_id}".format(tenant_id=config.get("tenant_id"), entity_type=params.get("entity_type"), entity_id=params.get("entity_id"))
-    layout = "Id,DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup"
+    layout = "Id"
     if params.get("entity_fields"):
         layout = layout + "," + params.get("entity_fields")
     params = {
@@ -135,7 +135,7 @@ def get_entity_details(config, params):
 
 def query_entities(config, params):
     endpoint = "/rest/{tenant_id}/ems/{entity_type}".format(tenant_id=config.get("tenant_id"), entity_type=params.get("entity_type"))
-    layout = "Id,DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup"
+    layout = "Id"
     if params.get("entity_fields"):
         layout = layout + "," + params.get("entity_fields")
     params = {

@@ -69,7 +69,7 @@
     {
       "operation": "create_entities",
       "title": "Create Entities",
-      "description": "Create entities",
+      "description": "Generate a new entities with provided details.",
       "category": "investigation",
       "annotation": "create_entities",
       "enabled": true,
@@ -119,7 +119,7 @@
     {
       "operation": "create_incident",
       "title": "Create Incident",
-      "description": "Create incident",
+      "description": "Generate a new incident with provided details",
       "category": "investigation",
       "annotation": "create_incident",
       "enabled": true,
@@ -250,7 +250,7 @@
     {
       "operation": "create_request",
       "title": "Create Request",
-      "description": "Create new request",
+      "description": "Generate a new request with provided details.",
       "category": "investigation",
       "annotation": "create_request",
       "enabled": true,
@@ -371,7 +371,7 @@
     {
       "operation": "get_entity_details",
       "title": "Get Entity Details",
-      "description": "Retrieves all details of entity",
+      "description": "Retrieves complete information about the entity.",
       "category": "investigation",
       "annotation": "get_entity_details",
       "enabled": true,
@@ -402,7 +402,7 @@
           "title": "Entity Fields",
           "name": "entity_fields",
           "type": "text",
-          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\". You can try below fields: DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup",
           "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
           "required": false,
           "visible": true,
@@ -424,7 +424,7 @@
     {
       "operation": "query_entities",
       "title": "Query Entities",
-      "description": "Retrieves list of entity",
+      "description": "Retrieve a list of entities by applying a filter.",
       "category": "investigation",
       "annotation": "query_entities",
       "enabled": true,
@@ -444,7 +444,7 @@
           "title": "Entity Fields",
           "name": "entity_fields",
           "type": "text",
-          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
+          "tooltip": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\". You can try below fields: DisplayLabel,Priority,RegisteredForActualService,Urgency,RequestedByPerson,ImpactScope,ServiceDeskGroup",
           "description": "Specify the fields of entity that you want to return. for example: \"Priority,Category\" for an entity of type \"Incident\".",
           "required": false,
           "visible": true,
@@ -510,7 +510,7 @@
     {
       "operation": "update_entities",
       "title": "Update Entities",
-      "description": "Update entities",
+      "description": "Update the entities with provided details.",
       "category": "investigation",
       "annotation": "update_entities",
       "enabled": true,
@@ -560,7 +560,7 @@
     {
       "operation": "update_incident",
       "title": "Update Incident",
-      "description": "Update incident",
+      "description": "Update the incident with provided details",
       "category": "investigation",
       "annotation": "update_incident",
       "enabled": true,
@@ -708,7 +708,7 @@
     {
       "operation": "update_request",
       "title": "Update Request",
-      "description": "Update request",
+      "description": "Update the request with provided details",
       "category": "investigation",
       "annotation": "update_request",
       "enabled": true,
